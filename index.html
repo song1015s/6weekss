@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>돈 내놔</title>
+	<style type="text/css">
+		.bb{width: 1000px; height: 450px; text-align: center;}
+		#tk{width: 170px;  height: 100px; position: absolute;
+			margin-top:200px;}
+		#lee{width: 170px;  height: 100px; position: absolute;
+			margin-top:100px;opacity: 30%;}
+		#sin{width: 167px;  height: 100px; position: absolute;
+		margin-top:0px; opacity: 30%;}
+		#soojeong{width: 167px;  height: 100px; position: absolute; margin-top:-100px; opacity: 50%;}
+		img{margin-left: 50px;
+			margin-top:-250px; width: 1700px; height: 1200px;}
+		.ppp{color: red; margin-left: 0px; font-size: 50px;
+			font-family:'EF_jejudoldam';}
+		.total{opacity: 30%; margin-top: -40px;}
+		@font-face {
+    font-family: 'EF_jejudoldam';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+	</style>
+</head>
+<body>
+	<div class="ppp">
+	<p>부자 되세요 ^^</p>
+	</div>
+<div class="total">
+	<label for="Score">총 금액:</label>
+	<input id="Score" type="text" value="0" readonly>
+	</div>
+	<!--버튼이 아니라 이미지를 클릭했을 때 금액에 맞게 카운트 되는 방법을 알고 싶습니다...-->
+<div class= "bb">
+	<img src="pig.png">
+</div>
+<img src="ten.jpg" id="tk">
+<img src="1.jpg" id="lee">
+<img src="5.jpg" id="sin">
+<img src="sad.png" id="soojeong">
+
+<div onclick="play()">
+</body>
+<audio id='audio' src='money.mp3'></audio> 
+<script type="text/javascript">
+
+	let x= 0;
+	let y= 0;
+	tk.onclick = function(){ // 이미지 클릭 시 금액 증가 함수
+	let inputElement = document.getElementById("Score");
+	let currentScore = parseInt(inputElement.value) || 0;  // 현재 금액 읽기
+
+	currentScore += 1000;  // 1000 추가
+	inputElement.value = currentScore; //총금액 업뎃
+
+	let x= Math.random()*(window.innerWidth-500);  // 곱하기 뒤는 윈도우의 크기를 하는 것이 좋다
+	let y= Math.random()*(window.innerHeight-100);	
+	let a = this.cloneNode(true);
+	a.style.left= x+"px";
+	a.style.top= y+"px";
+			
+
+	document.body.appendChild(a);
+	console.log(x,y);
+}
+
+
+
+	document.body.onclick = function play(){
+	var audio = document.getElementById("audio")
+	audio.play()
+
+}
+</script>
+</html>
